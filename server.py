@@ -64,10 +64,10 @@ class MyService(rpyc.Service):
 		grades = self._db.filter(filter_grade)
 		if len(grades) > 0:
 			self._db.update(filter_grade, new_grade)
-			print('nota sobreescrita')
+			return 'Nota sobreescrita'
 		else:
 			self._db.insert(new_grade)
-			print('nota inserida')
+			return 'Nota inserida'
 
 	def exposed_consultar_nota(self, mat, cod_disc):
 		grades = self._db.filter({ 'mat': mat, 'cod_disc': cod_disc })

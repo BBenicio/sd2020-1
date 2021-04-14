@@ -12,7 +12,7 @@ while running:
         matricula = input("Matricula: ")
         cod_disc = input("Codigo da Disciplina: ")
         nota = input("Nota: ")
-        print(conn.root.cadastrar_nota(matricula, cod_disc, nota))
+        print(conn.root.cadastrar_nota(matricula, cod_disc, float(nota)))
     elif op == 2:
         print("Insira a matricula e codigo da disciplina")
         matricula = input("Matricula: ")
