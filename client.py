@@ -12,20 +12,20 @@ while running:
         matricula = input("Matricula: ")
         cod_disc = input("Codigo da Disciplina: ")
         nota = input("Nota: ")
-        conn.root.cadastrar_nota(matricula, cod_disc, nota)
+        print(conn.root.cadastrar_nota(matricula, cod_disc, nota))
     elif op == 2:
         print("Insira a matricula e codigo da disciplina")
         matricula = input("Matricula: ")
         cod_disc = input("Codigo da Disciplina: ")
-        conn.root.consultar_nota(matricula, cod_disc)
+        print(conn.root.consultar_nota(matricula, cod_disc))
     elif op == 3:
         print("Insira a matricula")
         matricula = input("Matricula: ")
-        conn.root.consultar_nota(matricula)
+        print(conn.root.consultar_notas(matricula))
     elif op == 4:
         print("Insira a matricula")
         matricula = input("Matricula: ")
-        conn.root.consultar_nota(matricula)
+        print(conn.root.consultar_cr(matricula))
     else:
         print("Operacao Invalida")
     #
