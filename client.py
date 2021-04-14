@@ -1,5 +1,5 @@
 import rpyc
-conn = rpyc.connect("localhost", "12345")
+conn = rpyc.connect("localhost", 12345)
 
 running = True
 while running:
