@@ -79,6 +79,8 @@ class MyService(rpyc.Service):
 			print('nota inserida')
 
 	def exposed_consultar_nota(self, mat, cod_disc):
+		if not (type(matricula) == int or (type(matricula) == str and matricula.isnumeric()):
+			return f"Matricula Invalida"
 		grades = self._db.filter({ 'mat': mat, 'cod_disc': cod_disc })
 		if len(grades) > 0:
 			return grades[0]['nota']
