@@ -59,6 +59,15 @@ class MyService(rpyc.Service):
 		self._db = MyDatabase('notas.json')
 
 	def exposed_cadastrar_nota(self, mat, cod_disc, nota):
+		if not (type(nota) == int or type(nota) == float):
+			return f"Nota precisa ser um numero"
+		
+		if not (nota < 0 or nota > 10):
+			return f"Nota precisa ter um valor entre 0 e 10"
+		
+		if not (type(matricula) == int or (type(matricula) == str and matricula.isnumeric()):
+			return f"Matricula Invalida"
+		
 		filter_grade = { 'mat': mat, 'cod_disc': cod_disc }
 		new_grade = { 'mat': mat, 'cod_disc': cod_disc, 'nota': nota }
 		grades = self._db.filter(filter_grade)
@@ -70,6 +79,8 @@ class MyService(rpyc.Service):
 			return 'Nota inserida'
 
 	def exposed_consultar_nota(self, mat, cod_disc):
+		if not (type(matricula) == int or (type(matricula) == str and matricula.isnumeric()):
+			return f"Matricula Invalida"
 		grades = self._db.filter({ 'mat': mat, 'cod_disc': cod_disc })
 		if len(grades) > 0:
 			return grades[0]['nota']
@@ -77,6 +88,8 @@ class MyService(rpyc.Service):
 		return f'Não existe nota para o aluno de matricula {mat} na disciplina {cod_disc}'
 
 	def exposed_consultar_notas(self, mat):
+		if not (type(matricula) == int or (type(matricula) == str and matricula.isnumeric()):
+			return f"Matricula Invalida"
 		grades = self._db.filter({'mat': mat})
 		if len(grades) > 0:
 			return grades
@@ -84,6 +97,8 @@ class MyService(rpyc.Service):
 		return f'Não existem notas para o aluno de matricula {mat}'
 
 	def exposed_consultar_cr(self, mat):
+		if not (type(matricula) == int or (type(matricula) == str and matricula.isnumeric()):
+			return f"Matricula Invalida"
 		grades = self._db.filter({'mat': mat})
 		if len(grades) > 0:
 			avg = 0
